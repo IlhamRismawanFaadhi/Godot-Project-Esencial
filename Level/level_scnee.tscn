@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b0t3438uv76xx"]
+
+[ext_resource type="PackedScene" uid="uid://s13as1s14sv1" path="res://UI/Scnee/InGame/in_game_ui.tscn" id="1_geg6c"]
+
+[node name="LevelScnee" type="Node2D" unique_id=1025739484]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=304210192]
+
+[node name="InGameUi" parent="CanvasLayer" unique_id=1953453358 instance=ExtResource("1_geg6c")]

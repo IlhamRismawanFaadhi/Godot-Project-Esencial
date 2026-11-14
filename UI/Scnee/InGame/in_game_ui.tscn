@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://s13as1s14sv1"]
+
+[ext_resource type="Script" uid="uid://da8krallornwq" path="res://UI/Scnee/InGame/Script/in_game_ui.gd" id="1_grp7l"]
+[ext_resource type="PackedScene" uid="uid://diyrkqpmnn4gx" path="res://UI/Scnee/Pause/pause.tscn" id="2_vafgi"]
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="3_vafgi"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="4_420rb"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="5_5443v"]
+[ext_resource type="Texture2D" uid="uid://vrte8oyxdkeb" path="res://Assets/Icon/PNG/White/1x/star.png" id="6_06rjw"]
+[ext_resource type="Texture2D" uid="uid://ulipj2rcpolr" path="res://Assets/Icon/PNG/White/1x/pause.png" id="6_l74wl"]
+[ext_resource type="PackedScene" uid="uid://vx5lyjce0jw4" path="res://UI/Prefabs/Currency/currency.tscn" id="7_06rjw"]
+
+[sub_resource type="Gradient" id="Gradient_5443v"]
+offsets = PackedFloat32Array(0.6237219, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.18100001)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xd07"]
+gradient = SubResource("Gradient_5443v")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_syovm"]
+font = ExtResource("4_420rb")
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InGameUi" type="Control" unique_id=1953453358]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_grp7l")
+
+[node name="Overlay" type="Control" parent="." unique_id=1032620056]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Overlay" unique_id=2047933074]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_3xd07")
+
+[node name="NavBar" type="Control" parent="." unique_id=795320392]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.011000001
+anchor_top = 0.010000001
+anchor_right = 0.989
+anchor_bottom = 0.089
+offset_left = 0.1599989
+offset_top = -0.10000038
+offset_right = -0.16003418
+offset_bottom = -0.09000397
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavBar" unique_id=1000711121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="NavBar/HBoxContainer" unique_id=1308777811 instance=ExtResource("5_5443v")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+theme = ExtResource("3_vafgi")
+icon = ExtResource("6_l74wl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="VSeparator" type="VSeparator" parent="NavBar/HBoxContainer" unique_id=143272231]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.78
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="Currency" parent="NavBar/HBoxContainer" unique_id=295516375 instance=ExtResource("7_06rjw")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Star" parent="NavBar/HBoxContainer" unique_id=1600658435 instance=ExtResource("7_06rjw")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon_texture = ExtResource("6_06rjw")
+
+[node name="Pause" parent="." unique_id=1855071409 instance=ExtResource("2_vafgi")]
+visible = false
+layout_mode = 1
+
+[node name="FPS" type="Control" parent="." unique_id=126858816]
+visible = false
+layout_mode = 1
+anchor_left = 0.9110001
+anchor_top = 0.020000001
+anchor_right = 0.97800004
+anchor_bottom = 0.079
+offset_left = 0.15991211
+offset_top = -0.20000076
+offset_right = -0.32006836
+offset_bottom = 0.0099983215
+grow_horizontal = 0
+theme = ExtResource("3_vafgi")
+
+[node name="Label" type="Label" parent="FPS" unique_id=87661172]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FPS: 100"
+label_settings = SubResource("LabelSettings_syovm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="NavBar/HBoxContainer/Button" to="." method="_on_button_pressed"]

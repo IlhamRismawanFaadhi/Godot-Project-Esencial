@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://v6lwltobyo8l"]
+
+[ext_resource type="Script" uid="uid://cr7qrwedr7tue" path="res://UI/Scnee/Transition/Script/transition.gd" id="1_fn5nf"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="2_etejb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
+font = ExtResource("2_etejb")
+font_size = 27
+
+[sub_resource type="Animation" id="Animation_o1yf2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fn5nf"]
+resource_name = "Transition_keluar"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20148635),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_etejb"]
+resource_name = "Transition_masuk"
+length = 1.5333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.03333334, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.36666667, 0.56666666, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d2cy"]
+_data = {
+&"RESET": SubResource("Animation_o1yf2"),
+&"Transition_keluar": SubResource("Animation_fn5nf"),
+&"Transition_masuk": SubResource("Animation_etejb")
+}
+
+[node name="Transition" type="CanvasLayer" unique_id=405294995]
+script = ExtResource("1_fn5nf")
+
+[node name="Control" type="Control" parent="." unique_id=351257871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=286447907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="Control" unique_id=1250745594]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.943
+anchor_right = 0.09
+anchor_bottom = 1.0
+offset_top = 0.16998291
+offset_right = 0.3999939
+grow_vertical = 0
+text = "Loading ..."
+label_settings = SubResource("LabelSettings_3xd07")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationTransition" type="AnimationPlayer" parent="." unique_id=285384709]
+libraries/ = SubResource("AnimationLibrary_3d2cy")
+
+[connection signal="animation_finished" from="AnimationTransition" to="." method="_on_animation_transition_animation_finished"]
