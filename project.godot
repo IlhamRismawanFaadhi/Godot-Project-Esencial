@@ -31,7 +31,6 @@ GlobalSetting="*res://UI/Scnee/Setting/Script/GlobalSetting.gd"
 
 window/size/viewport_width=1440
 window/size/viewport_height=810
-window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true

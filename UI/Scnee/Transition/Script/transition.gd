@@ -6,7 +6,7 @@ func change_scnee(target: String)-> void:
 	$AnimationTransition.play("Transition_masuk")
 	target_to = target
 	#$AnimationTransition.animation_finished
-	
+
 
 
 func _on_animation_transition_animation_finished(anim_name: StringName) -> void:

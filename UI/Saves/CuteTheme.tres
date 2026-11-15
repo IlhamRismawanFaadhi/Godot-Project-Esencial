@@ -1,7 +1,12 @@
 [gd_resource type="Theme" format=3 uid="uid://2vx27ttvak05"]
 
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="1_tu7m3"]
-[ext_resource type="Texture2D" uid="uid://p7s7hjxbr8li" path="res://Assets/Icon/PNG/White/1x/gear.png" id="2_v8hku"]
+[ext_resource type="Texture2D" uid="uid://dh524ucciew23" path="res://Assets/Icon/PNG/circle-selected.png" id="2_csybf"]
+[ext_resource type="Texture2D" uid="uid://tif3vukj6um8" path="res://Assets/Icon/PNG/circle-unselected.png" id="3_lyomr"]
+[ext_resource type="Texture2D" uid="uid://cf30ckhvqq2wm" path="res://Assets/Icon/PNG/on.png" id="4_vdtx7"]
+[ext_resource type="Texture2D" uid="uid://cwakfgq1yv70l" path="res://Assets/Icon/PNG/off-mirror.png" id="5_7s6nc"]
+[ext_resource type="Texture2D" uid="uid://ccl61e04xk43h" path="res://Assets/Icon/PNG/off.png" id="6_gcfbr"]
+[ext_resource type="Texture2D" uid="uid://blvvwokmqlb8y" path="res://Assets/Icon/PNG/on-mirror.png" id="7_4hq64"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0xv"]
 bg_color = Color(1, 0.35910463, 0.37786508, 1)
@@ -46,10 +51,6 @@ expand_margin_right = 5.0
 shadow_color = Color(0, 0, 0, 0.3764706)
 shadow_size = 1
 shadow_offset = Vector2(2.005, 3.29)
-
-[sub_resource type="DPITexture" id="DPITexture_v8hku"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
-"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wpwu"]
 bg_color = Color(1, 1, 1, 1)
@@ -101,6 +102,18 @@ expand_margin_top = 2.0
 expand_margin_right = 5.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7cd5"]
+bg_color = Color(0.41334978, 0.70726144, 0.5134688, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csybf"]
 bg_color = Color(0.9353985, 0.89911836, 0.8927329, 1)
 corner_radius_top_left = 13
@@ -135,10 +148,8 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 1
-expand_margin_left = 20.0
-expand_margin_right = 20.0
 shadow_size = 4
-shadow_offset = Vector2(2.95, -3.63)
+shadow_offset = Vector2(2.95, 3.63)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpgou"]
 bg_color = Color(0.33333334, 0.34509805, 0.47058824, 0.99215686)
@@ -149,7 +160,7 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_detail = 1
 shadow_size = 4
-shadow_offset = Vector2(2.95, -3.38)
+shadow_offset = Vector2(2.95, 3.38)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m5u0"]
 
@@ -163,7 +174,7 @@ corner_radius_top_right = 15
 corner_detail = 1
 expand_margin_top = 7.0
 shadow_size = 4
-shadow_offset = Vector2(2.95, -3.38)
+shadow_offset = Vector2(2.95, 3.38)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7s6nc"]
 bg_color = Color(0.98039216, 0.95686275, 0.8235294, 1)
@@ -241,16 +252,22 @@ Button/styles/normal = SubResource("StyleBoxFlat_7rhpx")
 Button/styles/normal_mirrored = SubResource("StyleBoxFlat_7rhpx")
 Button/styles/pressed = SubResource("StyleBoxFlat_tu7m3")
 Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_tu7m3")
-CheckButton/icons/checked = SubResource("DPITexture_v8hku")
+CheckButton/icons/checked = ExtResource("4_vdtx7")
+CheckButton/icons/checked_disabled = ExtResource("5_7s6nc")
+CheckButton/icons/checked_disabled_mirrored = ExtResource("6_gcfbr")
+CheckButton/icons/checked_mirrored = ExtResource("7_4hq64")
+CheckButton/icons/unchecked = ExtResource("7_4hq64")
+CheckButton/icons/unchecked_disabled = ExtResource("6_gcfbr")
+CheckButton/icons/unchecked_disabled_mirrored = ExtResource("5_7s6nc")
 HScrollBar/styles/grabber = SubResource("StyleBoxFlat_3wpwu")
 HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_nnacx")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_nnacx")
 HScrollBar/styles/scroll = SubResource("StyleBoxFlat_v8hku")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_v8hku")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_riqys")
-HSlider/icons/grabber = ExtResource("2_v8hku")
-HSlider/icons/grabber_disabled = ExtResource("2_v8hku")
-HSlider/icons/grabber_highlight = ExtResource("2_v8hku")
+HSlider/icons/grabber = ExtResource("2_csybf")
+HSlider/icons/grabber_disabled = ExtResource("3_lyomr")
+HSlider/icons/grabber_highlight = ExtResource("3_lyomr")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_aw4ao")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_aw4ao")
 HSlider/styles/slider = SubResource("StyleBoxFlat_m3px7")
@@ -259,12 +276,14 @@ LineEdit/fonts/font = ExtResource("1_tu7m3")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_dwbtc")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_dwbtc")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_dwbtc")
+OptionButton/colors/font_color = Color(0.9262248, 0.92622477, 0.92622477, 1)
+OptionButton/styles/normal = SubResource("StyleBoxFlat_w7cd5")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_csybf")
 ProgressBar/fonts/font = ExtResource("1_tu7m3")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_lyomr")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_vdtx7")
 TabBar/fonts/font = SubResource("FontVariation_v8hku")
-TabContainer/font_sizes/font_size = 41
+TabContainer/font_sizes/font_size = 31
 TabContainer/fonts/font = ExtResource("1_tu7m3")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_8m5u0")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_rpgou")
@@ -284,9 +303,6 @@ VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_4hq64")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_u623d")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_u623d")
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_bhunq")
-VSlider/icons/grabber = ExtResource("2_v8hku")
-VSlider/icons/grabber_disabled = ExtResource("2_v8hku")
-VSlider/icons/grabber_highlight = ExtResource("2_v8hku")
 VSlider/styles/grabber_area = SubResource("StyleBoxFlat_gcfbr")
 VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_gcfbr")
 VSlider/styles/slider = SubResource("StyleBoxFlat_iv6j5")

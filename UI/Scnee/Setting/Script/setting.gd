@@ -28,9 +28,16 @@ func _apply_window_size():
 		0:
 			DisplayServer.window_set_size(Vector2i(1920, 1080))
 		1:
-			DisplayServer.window_set_size(Vector2i(1440, 810))
+			DisplayServer.window_set_size(Vector2i(1600, 900))
 		2:
-			DisplayServer.window_set_size(Vector2i(800, 450))
+			DisplayServer.window_set_size(Vector2i(1366, 768))
+		3:
+			DisplayServer.window_set_size(Vector2i(1280, 720))
+		4:
+			DisplayServer.window_set_size(Vector2i(1024, 576))
+		5:
+			DisplayServer.window_set_size(Vector2i(960, 540))
+
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
 	GlobalSetting.fullscreen_enable = toggled_on
 	
@@ -45,12 +52,19 @@ func _on_resolution_option_item_selected(index: int) -> void:
 	GlobalSetting.resolution_index = index
 	
 	match index:
+
 		0:
 			get_window().content_scale_size = Vector2i(1920, 1080)
 		1:
-			get_window().content_scale_size = Vector2i(1440, 810)
+			get_window().content_scale_size = Vector2i(1600, 900)
 		2:
-			get_window().content_scale_size = Vector2i(800, 450)
+			get_window().content_scale_size = Vector2i(1366, 768)
+		3:
+			get_window().content_scale_size = Vector2i(1280, 720)
+		4:
+			get_window().content_scale_size = Vector2i(1024, 576)
+		5:
+			get_window().content_scale_size = Vector2i(960, 540)
 
 ## Audio ##
 
