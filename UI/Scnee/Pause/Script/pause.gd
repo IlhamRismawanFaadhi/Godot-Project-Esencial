@@ -1,11 +1,12 @@
 extends Control
 func _on_resume_pressed() -> void:
-	visible = false
+	get_parent().pause()
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 func _on_setting_pressed() -> void:
 	$Setting.visible = true
 func _on_main_menu_pressed() -> void:
+	get_parent().visible = false
 	Transition.change_scnee("res://UI/Scnee/MainMenu/main_menu.tscn")
 func _on_visibility_changed() -> void:
 	if visible == true:

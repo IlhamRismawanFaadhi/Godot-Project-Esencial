@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://da8krallornwq" path="res://UI/Scnee/InGame/Script/in_game_ui.gd" id="1_grp7l"]
 [ext_resource type="PackedScene" uid="uid://diyrkqpmnn4gx" path="res://UI/Scnee/Pause/pause.tscn" id="2_vafgi"]
+[ext_resource type="Texture2D" uid="uid://cjlc7pchcwfsr" path="res://Assets/Icon/SVG/suit_hearts.svg" id="3_l74wl"]
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="3_vafgi"]
+[ext_resource type="Texture2D" uid="uid://c5kp31yk6khc8" path="res://Assets/Icon/SVG/shield.svg" id="4_06rjw"]
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="4_420rb"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="5_5443v"]
-[ext_resource type="Texture2D" uid="uid://vrte8oyxdkeb" path="res://Assets/Icon/PNG/White/1x/star.png" id="6_06rjw"]
 [ext_resource type="Texture2D" uid="uid://ulipj2rcpolr" path="res://Assets/Icon/PNG/White/1x/pause.png" id="6_l74wl"]
 [ext_resource type="PackedScene" uid="uid://vx5lyjce0jw4" path="res://UI/Prefabs/Currency/currency.tscn" id="7_06rjw"]
 
@@ -21,6 +22,13 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5nit"]
+bg_color = Color(1, 0.33879498, 0.32645625, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_syovm"]
@@ -35,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_vafgi")
 script = ExtResource("1_grp7l")
 
 [node name="Overlay" type="Control" parent="." unique_id=1032620056]
@@ -54,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_3xd07")
 
-[node name="NavBar" type="Control" parent="." unique_id=795320392]
+[node name="NavBar" type="Control" parent="Overlay" unique_id=795320392]
 unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.011000001
@@ -67,7 +76,7 @@ offset_right = -0.16003418
 offset_bottom = -0.09000397
 grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NavBar" unique_id=1000711121]
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/NavBar" unique_id=1000711121]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +84,91 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" parent="NavBar/HBoxContainer" unique_id=1308777811 instance=ExtResource("5_5443v")]
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/NavBar/HBoxContainer" unique_id=636276540]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/NavBar/HBoxContainer/PanelContainer" unique_id=1301530647]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1653992224]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Health" type="HBoxContainer" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1150748721]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 33.55
+alignment = 1
+
+[node name="HeartTexture" type="TextureRect" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer/Health" unique_id=731188356]
+self_modulate = Color(1, 0.5767317, 0.51669157, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_l74wl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthBar" type="ProgressBar" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer/Health" unique_id=2090351963]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.45
+theme_override_styles/fill = SubResource("StyleBoxFlat_y5nit")
+value = 48.08
+show_percentage = false
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer/Health" unique_id=290376775]
+layout_mode = 2
+
+[node name="Armor" type="HBoxContainer" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer" unique_id=973846118]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 33.55
+alignment = 1
+
+[node name="Armor" type="TextureRect" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer/Armor" unique_id=137561826]
+self_modulate = Color(0.01682651, 0.8097716, 0.8298573, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_06rjw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ArmorBar" type="ProgressBar" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer/Armor" unique_id=1057696115]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.45
+value = 60.0
+show_percentage = false
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer/Armor" unique_id=1127388580]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/NavBar/HBoxContainer/PanelContainer/VBoxContainer" unique_id=181617477]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/NavBar/HBoxContainer" unique_id=143272231]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.43
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="Currency" parent="Overlay/NavBar/HBoxContainer" unique_id=295516375 instance=ExtResource("7_06rjw")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Overlay/NavBar/HBoxContainer" unique_id=521054220]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="Button" parent="Overlay/NavBar/HBoxContainer" unique_id=1308777811 instance=ExtResource("5_5443v")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
@@ -83,21 +176,6 @@ theme = ExtResource("3_vafgi")
 icon = ExtResource("6_l74wl")
 icon_alignment = 1
 expand_icon = true
-
-[node name="VSeparator" type="VSeparator" parent="NavBar/HBoxContainer" unique_id=143272231]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.78
-theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
-
-[node name="Currency" parent="NavBar/HBoxContainer" unique_id=295516375 instance=ExtResource("7_06rjw")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Star" parent="NavBar/HBoxContainer" unique_id=1600658435 instance=ExtResource("7_06rjw")]
-layout_mode = 2
-size_flags_horizontal = 3
-icon_texture = ExtResource("6_06rjw")
 
 [node name="Pause" parent="." unique_id=1855071409 instance=ExtResource("2_vafgi")]
 visible = false
@@ -129,4 +207,4 @@ label_settings = SubResource("LabelSettings_syovm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="NavBar/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Overlay/NavBar/HBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -4,20 +4,14 @@
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_sve6v"]
 [ext_resource type="Script" uid="uid://b6miqs3alslcg" path="res://UI/Prefabs/Currency/Script/currency.gd" id="2_rmqr0"]
 [ext_resource type="Texture2D" uid="uid://bykwl8i0o56uc" path="res://Assets/Icon/PNG/White/1x/plus.png" id="2_u0qnm"]
-[ext_resource type="Texture2D" uid="uid://ckfh7cpgum0km" path="res://Assets/Icon/PNG/White/1x/trophy.png" id="3_sve6v"]
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="4_rmqr0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq8tk"]
-bg_color = Color(0.9365303, 0.94284236, 0.94215935, 1)
-corner_radius_top_left = 11
-corner_radius_top_right = 11
-corner_radius_bottom_right = 11
-corner_radius_bottom_left = 11
+[ext_resource type="Texture2D" uid="uid://jalaotxmmxxl" path="res://Assets/Icon/SVG/flip_full.svg" id="6_rmqr0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6fhyq"]
 font = ExtResource("4_rmqr0")
-font_size = 29
-font_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+font_size = 28
+outline_color = Color(0.27022192, 0.27022192, 0.2702219, 1)
+shadow_color = Color(0, 0, 0, 0.671)
 
 [node name="Currency" type="Control" unique_id=295516375]
 layout_mode = 3
@@ -28,25 +22,21 @@ offset_bottom = 0.30999756
 theme = ExtResource("1_sve6v")
 script = ExtResource("2_rmqr0")
 
-[node name="Panel" type="Panel" parent="." unique_id=21987690]
+[node name="Panel" type="PanelContainer" parent="." unique_id=403948629]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jq8tk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=744478232]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+modulate = Color(0.9098865, 0.6804013, 0, 1)
+layout_mode = 2
 
 [node name="AddedButton" parent="Panel/HBoxContainer" unique_id=1308777811 instance=ExtResource("1_3qr8m")]
 unique_name_in_owner = true
+visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -60,13 +50,40 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "1000"
 label_settings = SubResource("LabelSettings_6fhyq")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="IconTextureRect" type="TextureRect" parent="Panel/HBoxContainer" unique_id=39139042]
-unique_name_in_owner = true
-modulate = Color(1, 0.7390621, 0.51604545, 1)
+[node name="Icon" type="Control" parent="Panel/HBoxContainer" unique_id=1777869065]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_sve6v")
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.725, 0.725)
+
+[node name="IconTextureRectShadow" type="TextureRect" parent="Panel/HBoxContainer/Icon" unique_id=975468283]
+unique_name_in_owner = true
+self_modulate = Color(0.43211025, 0.43211025, 0.4321102, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.01, 0.035)
+texture = ExtResource("6_rmqr0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IconTextureRect" type="TextureRect" parent="Panel/HBoxContainer/Icon" unique_id=39139042]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_rmqr0")
+expand_mode = 1
 stretch_mode = 5

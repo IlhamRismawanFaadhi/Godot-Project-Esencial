@@ -57,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 theme_override_constants/tab_separation = 8
-current_tab = 1
+current_tab = 0
 script = ExtResource("3_mroum")
 
 [node name="HoverAudioButton" type="AudioStreamPlayer" parent="PanelControl/TabContainer" unique_id=333168863]
@@ -69,7 +69,6 @@ stream = ExtResource("5_h0kkp")
 bus = &"AudioFX"
 
 [node name="Video" type="TabBar" parent="PanelControl/TabContainer" unique_id=633491251]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 metadata/_tab_index = 0
@@ -148,6 +147,7 @@ size_flags_stretch_ratio = 0.85
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
 
 [node name="Gameplay" type="TabBar" parent="PanelControl/TabContainer" unique_id=28633339]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

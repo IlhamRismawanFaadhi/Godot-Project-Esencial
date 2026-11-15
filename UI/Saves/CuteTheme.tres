@@ -70,6 +70,8 @@ border_color = Color(0.21176471, 0.21568628, 0.24313726, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_riqys"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw4ao"]
 bg_color = Color(0.50980395, 0.6313726, 0.5764706, 1)
 corner_radius_top_left = 4
@@ -101,18 +103,14 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csybf"]
 bg_color = Color(0.9353985, 0.89911836, 0.8927329, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-shadow_color = Color(0, 0, 0, 0.293)
-shadow_size = 4
-shadow_offset = Vector2(2.95, 2.93)
-anti_aliasing_size = 3.1
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+shadow_color = Color(0, 0, 0, 0.171)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+anti_aliasing_size = 0.71
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyomr"]
 bg_color = Color(0.1389701, 0.31416827, 0.34834853, 1)
@@ -209,6 +207,8 @@ border_color = Color(0.21176471, 0.21568628, 0.24313726, 1)
 corner_radius_top_left = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcfbr"]
 bg_color = Color(0.50980395, 0.6313726, 0.5764706, 1)
 corner_radius_top_left = 4
@@ -247,6 +247,7 @@ HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_nnacx")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_nnacx")
 HScrollBar/styles/scroll = SubResource("StyleBoxFlat_v8hku")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_v8hku")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_riqys")
 HSlider/icons/grabber = ExtResource("2_v8hku")
 HSlider/icons/grabber_disabled = ExtResource("2_v8hku")
 HSlider/icons/grabber_highlight = ExtResource("2_v8hku")
@@ -282,6 +283,7 @@ VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_4hq64")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_4hq64")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_u623d")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_u623d")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_bhunq")
 VSlider/icons/grabber = ExtResource("2_v8hku")
 VSlider/icons/grabber_disabled = ExtResource("2_v8hku")
 VSlider/icons/grabber_highlight = ExtResource("2_v8hku")

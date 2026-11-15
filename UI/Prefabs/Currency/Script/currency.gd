@@ -9,3 +9,4 @@ func _ready() -> void:
 	if icon_texture != null:
 		
 		%IconTextureRect.texture = icon_texture
+		%IconTextureRectShadow.texture = icon_texture
