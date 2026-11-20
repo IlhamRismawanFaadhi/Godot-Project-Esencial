@@ -1,7 +1,11 @@
 extends Control
-
+@onready var resolution_option: OptionButton = $PanelControl/TabContainer/Video/Control/VBoxContainer/Resolution/ResolutionOption
 @onready var debugger_label: Label = $Debugger/Label
-
+@export var resolution_list: Array[Vector2i] 
+func _ready() -> void:
+	for i in range (resolution_list.size()):
+		resolution_option.add_item(str(resolution_list[i].x, " x ", resolution_list[i].y))
+		
 func _process(_delta: float) -> void:
 	debugger_label.text = str(AudioServer.get_bus_volume_db(0)) 
 
